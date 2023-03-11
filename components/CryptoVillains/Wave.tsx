@@ -98,7 +98,7 @@ export function FTXExchange(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasEle
     return new FTXExchangeEnemy(x, y, canvas, ctx, player, enemyController);
 }
 class FTXTokenEnemy extends Enemy {
-    destination: number[];
+    destination!: number[];
     constructor(x: number, y: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, player: Player) {
         super(x, y, canvas.width / 12, canvas.width / 12, bottomTriangle([x, y], canvas), null, "/shooter-elements/ftx_token.png", 5, "/shooter-elements/ftx_token_red.png", 4, BasicEnemyBullet, ctx, canvas, player, 500);
         this.newDestination();
@@ -139,8 +139,8 @@ class FTXTokenEnemy extends Enemy {
 }
 class SBFEnemy extends Enemy {
     constructor(x: number, y: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, player: Player) {
-        super(x, -10, canvas.width / 5, canvas.width / 5, verticalCross([x, y], canvas), null,
-            "/shooter-elements/sbf_face.png", 200, "/shooter-elements/sbf_face_red.png", 1, SBFBullet, ctx, canvas, player, 200);
+        //@ts-ignore
+        super(x, -10, canvas.width / 5, canvas.width / 5, verticalCross([x, y], canvas), null,"/shooter-elements/sbf_face.png", 200, "/shooter-elements/sbf_face_red.png", 1, SBFBullet, ctx, canvas, player, 200);
     }
     shoot() {
         let velocityArray = [[-5, 15], [0, 15], [5, 15]];
@@ -160,11 +160,13 @@ class SBFEnemy extends Enemy {
 }
 class DoKwonEnemy extends HighLevelEnemy {
     constructor(x: number, y: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, player: Player, enemyController: BasicController<Enemy>) {
+        //@ts-ignore
         super(x, y, canvas.width / 5, canvas.width / 5, lineHorizontal([x, y], canvas), null, "/shooter-elements/dokwon.png", 200, "/shooter-elements/dokwon_red.png", 1, null, ctx, canvas, player, 1000, enemyController, LUNAEnemy);
     }
 }
 class FTXExchangeEnemy extends HighLevelEnemy {
     constructor(x: number, y: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, player: Player, enemyController: BasicController<Enemy>) {
+        //@ts-ignore
         super(x, y, canvas.width / 5, canvas.width / 5, null, null, "/shooter-elements/ftx_exchange.png", 200, "/shooter-elements/ftx_exchange_red.png", 1, null, ctx, canvas, player, 4000, enemyController, FTXTokenEnemy);
     }
     move() {
@@ -182,6 +184,7 @@ class LUNAEnemy extends Enemy {
     target: Player;
     damage: number;
     constructor(x: number, y: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, player: Player) {
+        //@ts-ignore
         super(x, y, canvas.width / 10, canvas.width / 10, null, null, "/shooter-elements/luna_token.png", 30, "/shooter-elements/luna_token_red.png", 1, null, ctx, canvas, player, 1000);
         this.target = player;
         this.damage = 50;
@@ -210,10 +213,10 @@ class LUNAEnemy extends Enemy {
     }
 }
 class CZEnemy extends Enemy {
-    destination: number[];
+    destination!: number[];
     constructor(x: number, y: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, player: Player) {
-        super(x, -10, canvas.width / 20, canvas.width / 20, verticalCross([x, y], canvas), null,
-            "/shooter-elements/cz.png", 1, "/shooter-elements/cz.png", 20, null, ctx, canvas, player, 300);
+        //@ts-ignore
+        super(x, -10, canvas.width / 20, canvas.width / 20, verticalCross([x, y], canvas), null, "/shooter-elements/cz.png", 1, "/shooter-elements/cz.png", 20, null, ctx, canvas, player, 300);
         this.newDestination();
     }
     shoot() {

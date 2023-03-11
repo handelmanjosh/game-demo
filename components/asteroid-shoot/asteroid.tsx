@@ -1,4 +1,3 @@
-import { findAuctionHouseByCreatorAndMintOperation } from "@metaplex-foundation/js";
 import CheckRadialCollision from "../CheckRadialCollision";
 
 export default class AsteroidController {

@@ -1,5 +1,3 @@
-import React, { BlockquoteHTMLAttributes } from 'react';
-import { TOWER_LEVEL_INC_MAP } from '../../constants';
 type Props = {
     showLabel: boolean;
     imgUrl?: string;

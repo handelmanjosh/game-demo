@@ -1,4 +1,3 @@
-import { size } from "lodash";
 
 interface PlayButtonProps {
     startPlay?: (choice: 'left' | 'center' | 'right') => void;
@@ -16,7 +15,7 @@ export function PlayButton({ startPlay, disable, choice, id }: PlayButtonProps) 
                 type="button"
                 id={id}
                 className="relative bg-transparent cursor-pointer group outline-offset-8 hover:brightness-[110%]"
-                onClick={() => startPlay(choice)}
+                onClick={() => startPlay!(choice)}
             >
                 {/* <img src={`/icon-${choice}.png`} alt={choice}/> */}
 

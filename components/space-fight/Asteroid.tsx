@@ -1,4 +1,3 @@
-import { BasicController } from "../BasicController";
 
 export default class AsteroidController {
     AsteroidList: Asteroid[];

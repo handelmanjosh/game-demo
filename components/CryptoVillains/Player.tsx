@@ -9,9 +9,9 @@ export default class Player {
     speed: number;
     width: number;
     height: number;
-    rightPressed: boolean;
-    leftPressed: boolean;
-    spacePressed: boolean;
+    rightPressed!: boolean;
+    leftPressed!: boolean;
+    spacePressed!: boolean;
     canvas: HTMLCanvasElement;
     BulletController: BulletController;
     ctx: CanvasRenderingContext2D;

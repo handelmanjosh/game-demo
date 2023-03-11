@@ -36,9 +36,12 @@ export default class Enemy {
         this.height = height;
         this.path = path;
         this.pathIndex = 0;
+        //@ts-ignore
         this.color = color;
         this.health = health;
+        //@ts-ignore
         this.dmgSrc = dmgSrc;
+        //@ts-ignore
         this.imgSrc = imgSrc;
         this.speed = speed;
         this.bulletType = bulletType;
@@ -55,6 +58,7 @@ export default class Enemy {
         } else {
             img = null;
         }
+        //@ts-ignore
         this.img = img;
     }
     draw(ctx: any) {

@@ -18,7 +18,7 @@ export default function FollowMouse({ target, canvasId }: FollowMouseProps) {
         updateMousePosition(event.x, event.y);
     };
     const updateMousePosition = (x: number, y: number) => {
-        let canvas = document.getElementById(canvasId).getBoundingClientRect();
+        let canvas = document.getElementById(canvasId)!.getBoundingClientRect();
         let player = target();
         let playerPos = [canvas.x + canvas.width / 2, canvas.y + canvas.height / 2];
 

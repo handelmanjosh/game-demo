@@ -8,6 +8,7 @@ type Collideable = {
 
 export default function CheckCollision(collider: Collideable, collidee: Collideable, onCollision: (...args: any) => any) {
     try {
+        //@ts-ignore
         if (collider.exists <= 0) {
             return;
         }
