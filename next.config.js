@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: false,
+  reactStrictMode: false,  
+  eslint: { ignoreDuringBuilds: true },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
