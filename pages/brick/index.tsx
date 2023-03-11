@@ -25,8 +25,6 @@ let newLife = false;
 let newLifeCounter = 0;
 let canShoot2: boolean;
 const BrickBreaker: NextPage = () => {
-    const [balance, setBalance] = useState(null);
-    const [ticketCount, setTicketCount] = useState(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     const [canShoot, setCanShoot] = useState<boolean>(false);
     const [ticketsWon, setTicketsWon] = useState<number>(0);
