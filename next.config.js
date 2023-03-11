@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
 module.exports = {
   eslint: {
@@ -6,11 +5,6 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-}
-
-const nextConfig = {
-  reactStrictMode: true,
-  
 }
 
 module.exports = nextConfig
