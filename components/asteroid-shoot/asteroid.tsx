@@ -97,10 +97,10 @@ class Asteroid {
     canTakeDamage: boolean;
     canDraw: boolean;
     canMove: boolean;
-    points: number;
+    points!: number;
     dead: boolean;
-    text: string;
-    cantDrawImage: boolean;
+    text!: string;
+    cantDrawImage!: boolean;
     cantCollide: boolean;
     img: HTMLImageElement;
     ctx: CanvasRenderingContext2D;

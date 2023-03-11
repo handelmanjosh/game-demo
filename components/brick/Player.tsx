@@ -6,8 +6,8 @@ export default class Player {
     height: number;
     defaultWidth: number;
     defaultSpeed: number;
-    rightPressed: boolean;
-    leftPressed: boolean;
+    rightPressed!: boolean;
+    leftPressed!: boolean;
     canvas: HTMLCanvasElement;
     img: HTMLImageElement;
     constructor(x: number, y: number, speed: number, canvas: HTMLCanvasElement) {

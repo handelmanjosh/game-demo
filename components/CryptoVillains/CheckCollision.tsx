@@ -7,12 +7,17 @@ type Collideable = {
 };
 
 export default function CheckCollision(collider: Collideable, collidee: Collideable, onCollision: (...args: any) => any) {
-    try {
-        if (collider.exists! <= 0) {
+    // try {
+    //     if (collider.exists <= 0) {
+    //         return;
+    //     }
+    // } catch (e) {
+
+    // }
+    if (collider.exists) {
+        if (collider.exists <= 0) {
             return;
         }
-    } catch (e) {
-
     }
     if (collider == undefined) console.log("collider");
     if (collidee == undefined) console.log("collidee");
