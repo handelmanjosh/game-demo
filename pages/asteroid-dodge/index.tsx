@@ -63,6 +63,7 @@ const AsteroidDodge: NextPage = () => {
         frame();
     }, []);
     const frame = () => {
+        if (!document.getElementById("gameField")) return;
         resetCanvas();
         if (levelUp) {
             ctx.font = "32px 'Press Start 2P'";
@@ -155,7 +156,7 @@ const AsteroidDodge: NextPage = () => {
         resetDefaults();
     };
     const respawn = () => {
-        player = new Player(30, 5, maxX, maxY, canvas, ctx, "gameField");
+        player = new Player(30, 5, maxX, maxY, canvas, ctx);
         asteroidController = new AsteroidController(ctx, width, height);
         ticketController = new TicketController(ctx, width, height, player);
     };

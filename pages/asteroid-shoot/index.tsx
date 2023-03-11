@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import AsteroidController from "../../components/asteroid-shoot/asteroid";
 import SpaceButton from "../../components/SpaceButton";
 
-const tickNextLevel = 2000;
 let width: number, height: number;
 let canvas: HTMLCanvasElement, canvasRect: any;
 let ctx: CanvasRenderingContext2D;
@@ -11,33 +10,11 @@ let img: HTMLImageElement;
 let asteroidController: AsteroidController;
 let tick: number = 0;
 let playing: boolean = false;
-let tickets: number = 0;
-let levelNum: number = 1;
-let levelUp: boolean = false;
 let points: number = 0;
 let startTime: number;
 let levelController = { delay: 60, vMax: 2, widthMax: 50, widthMin: 20, number: 1 };
-let ticketLevelController = { delay: 100, vMax: 5, widthMax: 50, widthMin: 50, n: 1 };
 const totalGameSeconds = 45;
-const widthIncrease = () => { levelController.widthMax += 10; };
-const widthDecrease = () => {
-    if (levelController.widthMin > 10) {
-        levelController.widthMin -= 2;
-    }
-};
-const delayDecrease = () => {
-    if (levelController.delay > 5) {
-        levelController.delay -= 5;
-    }
-    if (ticketLevelController.delay > 5) {
-        ticketLevelController.delay -= 5;
-    }
-};
-const numberIncrease = () => { levelController.number++; ticketLevelController.n++; };
-const resetDefaults = () => {
-    levelController = { delay: 60, vMax: 4, widthMax: 50, widthMin: 20, number: 1 };
-    ticketLevelController = { delay: 100, vMax: 5, widthMax: 50, widthMin: 50, n: 1 };
-};
+
 let xPos: number, yPos: number;
 const AsteroidShoot: NextPage = () => {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -66,6 +43,7 @@ const AsteroidShoot: NextPage = () => {
         setIsPlaying(false);
     };
     const frame = () => {
+        if (!document.getElementById("gameField")) return;
         resetCanvas();
         if (playing) {
             let currentTime: number = Date.now();

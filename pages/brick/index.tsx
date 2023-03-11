@@ -118,6 +118,7 @@ const BrickBreaker: NextPage = () => {
     }
 
     async function gameLoop() {
+        if (!document.getElementById("gameField")) return;
         resetCanvas();
         let leftOffset = 0;
         if (canvas.width == 600) {

@@ -12,11 +12,10 @@ export default class Player {
     vMax: number;
     mass: number;
     health: number;
-    angle: number;
-    spacePressed: boolean;
+    angle!: number;
+    spacePressed!: boolean;
     singleTouch: boolean;
     canvas: HTMLCanvasElement;
-    canvasID: string;
     ctx: CanvasRenderingContext2D;
     img: HTMLImageElement;
     shipNum: number;
@@ -25,7 +24,7 @@ export default class Player {
     tickets: number;
     tick: number;
     BulletList: PlayerBullet[];
-    constructor(width: number, vMax: number, maxX: number, maxY: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, canvasID: string) {
+    constructor(width: number, vMax: number, maxX: number, maxY: number, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
         this.width = width;
         this.height = width * 1.5;
         this.maxX = maxX;
@@ -42,7 +41,6 @@ export default class Player {
         this.canMove = true;
         this.dead = false;
         this.singleTouch = false;
-        this.canvasID = canvasID;
         this.shipNum = 0;
         this.tick = 0;
         this.tickets = 0;
@@ -176,7 +174,8 @@ export default class Player {
         this.updatePosition(event.x, event.y);
     };
     updatePosition = (x: number, y: number) => {
-        let canvas = document.getElementById(this.canvasID).getBoundingClientRect();
+
+        let canvas = this.canvas.getBoundingClientRect();
         let playerPos = [canvas.x + this.x, canvas.y + this.y];
 
         let xDiff = x - playerPos[0];

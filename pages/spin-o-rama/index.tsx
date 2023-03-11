@@ -56,6 +56,9 @@ const Spinner: NextPage = () => {
     const [ticketCount, setTicketCount] = useState(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     useEffect(() => {
+        if (spinner) spinner.destroy();
+        //@ts-ignore
+        spinner = null;
         let ctx = document.getElementById("spinner-canvas") as HTMLCanvasElement;
         let data = {
             plugins: [ChartDataLabels],
@@ -117,8 +120,6 @@ const Spinner: NextPage = () => {
                 options: options,
             });
         }
-
-
     }, []);
 
     async function spin() {
@@ -141,6 +142,7 @@ const Spinner: NextPage = () => {
 
 
         function rotate() {
+            if (!spinner) clearInterval(interval);
             spinner.style.transform = `rotate(${degrees}deg)`;
             degrees += degreesDelta;
             degreesDelta = degreesFunction(degreesDelta, increment);
@@ -186,6 +188,7 @@ const Spinner: NextPage = () => {
         const degreeChange = (d: number, i: number) => (d > .15) ? d - i : d;
         const interval = setInterval(rotate, 2);
         function rotate() {
+            if (!spinner) clearInterval(interval);
             if (rotatedDegrees > moveAmount) {
                 // console.log("rotated " + currentDegree % 360);
                 setIsPlaying(false);
@@ -229,15 +232,10 @@ const Spinner: NextPage = () => {
                     </div>
                 </div>
                 <div className="flex flex-row justify-center w-full mt-2 md:mt-4">
-                    <button onClick={spin} >
+                    <button onClick={spin} className="text-white">
                         Spin to Win!
                     </button>
                 </div>
-                {/* FAQ */}
-                <div id="faq" className="text-white text-2xl md:text-3xl tracking-wider text-center mt-20 mb-5 pt-10 xl:mb-5 xl:mt-24">Frequently Asked Questions</div>
-                <div className="mx-auto w-11/12 lg:w-8/12">
-                </div>
-                <div className="pb-10"></div>
             </div>
         </>
     );
